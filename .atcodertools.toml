@@ -1,0 +1,13 @@
+[codestyle]
+workspace_dir='~/Documents/atcoder/'
+lang='cpp'
+indent_type='space' # 'tab' or 'space'
+indent_width=4
+template_file='~/Documents/atcoder/templates/templates.cpp'
+
+
+[etc]
+download_without_login=true
+save_no_session_cache=true
+in_example_format="in_{}.txt"
+out_example_format="out_{}.txt"
