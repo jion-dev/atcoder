@@ -6,24 +6,17 @@ int main() {
   int H, W;
   cin >> H >> W;
 
-  pair<vector<int>, vector<int>> circle_pos(vector<int>(2), vector<int>(2));
-  bool isFirst = true;
-  rep(i, H) {
-    string input;
-    cin >> input;
-    int pos = input.find("o");
-    if(pos != string::npos) {
-      if(isFirst) {
-        circle_pos.first = {i, pos};
-        isFirst = false;
-      } else {
-        circle_pos.second = {i, pos};
-      }
+  vector<string> s(H);
+  vector<int> xs, ys;
+  rep(i, H) cin >> s.at(i);
+  rep(i, H) rep(j, W) {
+    if(s.at(i).at(j) == 'o') {
+      xs.push_back(i);
+      ys.push_back(j);
     }
   }
 
-  int dist = (abs(circle_pos.first.at(0) - circle_pos.second.at(0)) +
-              abs(circle_pos.first.at(1) - circle_pos.second.at(1)));
+  int dist = (abs(xs.at(0) - xs.at(1)) + abs(ys.at(0) - ys.at(1)));
 
   cout << dist << endl;
 }
