@@ -4,26 +4,32 @@ using namespace std;
 
 int main() {
   int n;
+  cin >> n;
 
-  bool can = true;
+  vector<string> s(n);
+  vector<string> t(n);
+  rep(i, n) { cin >> s[i] >> t[i]; };
 
-  vector<vector<string>> full(n, vector<string>(2));
-  vector<string> array;
-  rep(i, n) rep(j, 2) {
-    string temp;
-    cin >> temp;
-    full[i][j] = temp;
-    array.push_back(temp);
-  }
-
-  int cout = 0;
-  rep(i, n) rep(j, n) {
-    if(*find(array.begin(), array.end(), full[i][j]) == full[i][j]) {
+  rep(i, n) {
+    bool can = false;
+    for(auto &S : {s[i], t[i]}) {
+      bool ok = true;
+      rep(j, n) {
+        if(i != j) {
+          if(S == s[j] || S == t[j]) {
+            ok = false;
+            break;
+          }
+        }
+      }
+      if(ok) {
+        can = true;
+      }
     }
-
-    // if(can) {
-    //   cout << "Yes" << endl;
-    // } else {
-    //   cout << "No" << endl;
-    // }
+    if(!can) {
+      cout << "No" << endl;
+      return 0;
+    }
   }
+  cout << "Yes" << endl;
+}
