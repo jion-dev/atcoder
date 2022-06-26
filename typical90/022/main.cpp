@@ -13,11 +13,6 @@ int main() {
   // 最大公約数を求める=編の長さ
   long long length = calc_gcd(a, calc_gcd(b, c));
 
-  long long count = 0;
-
-  count += (a % length) ? 0 : a / length - 1;
-  count += (b % length) ? 0 : b / length - 1;
-  count += (c % length) ? 0 : c / length - 1;
-
+  long long count = a / length - 1 + b / length - 1 + c / length - 1;
   cout << count << endl;
 }
