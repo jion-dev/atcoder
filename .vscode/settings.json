@@ -4,6 +4,7 @@
     "cmath": "cpp",
     "vector": "cpp",
     "iosfwd": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "numeric": "cpp"
   }
 }
