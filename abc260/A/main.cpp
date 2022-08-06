@@ -11,9 +11,9 @@ int main() {
 
   rep(i, s.size()) { s_count[s[i]] = i; }
   rep(i, s_count.size()) {
-    int count = s_count[i];
+    int count = s_count[s[i]];
     if(count == 1) {
-      cout << count << endl;
+      cout << s[i] << endl;
       return 0;
     }
   }
