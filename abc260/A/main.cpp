@@ -9,13 +9,14 @@ int main() {
   cin >> s;
   map<char, int> s_count;
 
-  rep(i, s.size()) { s_count[s[i]] = i; }
-  rep(i, s_count.size()) {
-    int count = s_count[s[i]];
+  rep(i, s.size()) { s_count[s[i]] += 1; }
+  for(const auto &[ans, count] : s_count) {
     if(count == 1) {
-      cout << s[i] << endl;
+      cout << ans << endl;
       return 0;
     }
   }
+
+  cout << -1 << endl;
   return 0;
 }
