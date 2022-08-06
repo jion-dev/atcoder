@@ -1,26 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-typedef long double ld;
-#define rep(i, n) for(ll i = 0; i < (ll)(n); i++)
 
 int main() {
-  int step = 1;
   int n;
-  map<int, int> ps;
-
   cin >> n;
-  rep(i, n - 1) {
-    int p;
-    cin >> p;
-    ps[p] = i + 2;
+  vector<int> a(n);
+  for(int i = 1; i < n; i++) {
+    cin >> a[i];
+    a[i]--;
   }
-  int target = ps[1];
-  while(target != n) {
-    step++;
-    target = ps[target];
+  vector<int> dp(n);
+  for(int i = 1; i < n; i++) {
+    dp[i] = dp[a[i]] + 1;
   }
-
-  cout << step << endl;
-  return 0;
+  cout << dp[n - 1] << endl;
 }
