@@ -6,6 +6,7 @@
     "iosfwd": "cpp",
     "ostream": "cpp",
     "numeric": "cpp",
-    "random": "cpp"
+    "random": "cpp",
+    "type_traits": "cpp"
   }
 }
