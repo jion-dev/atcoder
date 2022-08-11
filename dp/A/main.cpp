@@ -4,7 +4,7 @@ typedef long long ll;
 typedef long double ld;
 #define rep(i, n) for(ll i = 0; i < (ll)(n); i++)
 
-int N, h[10009], dp[10009];
+int N, h[100009], dp[100009];
 int main() {
   cin >> N;
   for(int i = 1; i <= N; i++)
