@@ -3,7 +3,7 @@ workspace_dir='~/Documents/atcoder/'
 lang='cpp'
 indent_type='space' # 'tab' or 'space'
 indent_width=4
-template_file='~/Documents/atcoder/templates/templates.cpp'
+template_file='~/Documents/my_proj/atcoder/.atcodertools.toml'
 
 
 [etc]
