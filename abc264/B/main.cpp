@@ -30,22 +30,29 @@ template <typename T> void view(const std::vector<std::vector<T>> &vv) {
 int main() {
   int R, C;
   cin >> R >> C;
-  R--;
-  C--;
-  vector<vector<int>> grid(15, vector<int>(15));
-  rep(i, 15) {
-    rep(j, 15) {
-      if((i == 0 || j == 0 || i == 14 || j == 14) ||
-         ((i >= 2 && j >= 2) && i % 2 == 0 and (i <= j and j <= 14 - i)) ||
-         ((i >= 2 && j >= 2) && j % 2 == 0 and (j <= i and i <= 14 - j))) {
-        grid[i][j] = 1;
-        grid[14 - i][14 - j] = 1;
-      }
-    }
-  }
-  if(grid[R][C] == 1)
-    debug("black");
+  // 以下自作コード(効率悪い)
+  // R--;
+  // C--;
+  // vector<vector<int>> grid(15, vector<int>(15));
+  // rep(i, 15) {
+  //   rep(j, 15) {
+  //     if((i == 0 || j == 0 || i == 14 || j == 14) ||
+  //        ((i >= 2 && j >= 2) && i % 2 == 0 and (i <= j and j <= 14 - i)) ||
+  //        ((i >= 2 && j >= 2) && j % 2 == 0 and (j <= i and i <= 14 - j))) {
+  //       grid[i][j] = 1;
+  //       grid[14 - i][14 - j] = 1;
+  //     }
+  //   }
+  // }
+  // if(grid[R][C] == 1)
+  //   debug("black");
+  // else
+  //   debug("white");
+
+  // 参考：https://atcoder.jp/contests/abc264/editorial/4578
+  if(max(abs(R - 8), abs(C - 8)) % 2)
+    cout << "black" << endl;
   else
-    debug("white");
+    cout << "white" << endl;
   return 0;
 }
