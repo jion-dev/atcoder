@@ -1,13 +1,22 @@
 [codestyle]
-workspace_dir='~/Documents/atcoder/'
+workspace_dir='~/Documents/my_proj/atcoder/'
 lang='cpp'
 indent_type='space' # 'tab' or 'space'
 indent_width=4
-template_file='~/Documents/my_proj/atcoder/.atcodertools.toml'
+template_file='~/Documents/my_proj/atcoder/templates/templates.cpp'
 
+[compiler]
+compile_command='g++ main.cpp -o main -std=c++17'
+compile_only_when_diff_detected=true
+
+[tester]
+compile_before_testing=true
+compile_only_when_diff_detected=true
+timeout_adjustment=1.2
 
 [etc]
 download_without_login=true
 save_no_session_cache=true
+skip_existing_problems=false
 in_example_format="in_{}.txt"
 out_example_format="out_{}.txt"
