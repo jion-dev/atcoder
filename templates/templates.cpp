@@ -4,7 +4,7 @@ typedef long long ll;
 typedef long double ld;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define rep3(i, m, n) for (int i = (m); i < (int)(n); i++)
-#define ALL(x) std::begin(x), std::end(x)
+#define ALL(x) x.begin(), x.end()
 #define debug(true)  do{view(var);}while(0)
 #define debugN(var)  do{std::cout << #var << " : ";view(var);}while(0)
 template<typename T> void view(T e){std::cout << e << std::endl;}
