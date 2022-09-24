@@ -3,7 +3,7 @@ workspace_dir='~/Documents/my_proj/atcoder/'
 lang='cpp'
 indent_type='space' # 'tab' or 'space'
 indent_width=4
-template_file='~/Documents/my_proj/atcoder/templates/templates.cpp'
+template_file='~/projects/atcoder/templates/templates.cpp'
 
 [compiler]
 compile_command='g++ main.cpp -o main -std=c++17'
