@@ -1,3 +1,4 @@
+# C++
 [codestyle]
 workspace_dir='~/Documents/my_proj/atcoder/'
 lang='cpp'
@@ -20,3 +21,9 @@ save_no_session_cache=true
 skip_existing_problems=false
 in_example_format="in_{}.txt"
 out_example_format="out_{}.txt"
+
+# Python
+# [codestyle]
+# workspace_dir='~/Documents/my_proj/atcoder/'
+# lang='python'
+# template_file='~/projects/atcoder/templates/templates.py'
