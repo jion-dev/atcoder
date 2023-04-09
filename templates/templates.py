@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 import bisect,collections,copy,heapq,itertools,math,string,queue
 import sys
 def I(): return int(input())
