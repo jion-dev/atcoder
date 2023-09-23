@@ -8,36 +8,51 @@ def S(): return input()
 def MS(): return input().split()
 def LS(): return list(input().split())
 
-def generate_321_like_numbers(K):
-    # 初期化
-    queue = collections.deque()
-    for i in range(9):
-      queue.appendleft(i+1) # 1~9は必ず321-likeNumberなので、キューに追加
-    count = 0
+# ビット演算
+k = I()
 
-    while True:
-        # キューから次の321-likeNumberを取得
-        current = queue.pop()
-        count += 1
+a = []
+for s in range(1<<10):
+    x = 0
+    for i in range(9, -1, -1):
+        if s >> i & 1:
+            x = x*10+i
+    if x == 0: continue
+    a.append(x)
+a.sort()
+print(a[k-1])
 
-        # K番目の321-likeNumberに到達した場合、それを返す
-        if count == K:
-            return current
+# 以下でも正解
+# def generate_321_like_numbers(K):
+#     # 初期化
+#     queue = collections.deque()
+#     for i in range(9):
+#         queue.appendleft(i+1) # 1~9は必ず321-likeNumberなので、キューに追加
+#     count = 0
 
-        # currentの最後の桁を取得
-        last_digit = current % 10
+#     while True:
+#         # キューから次の321-likeNumberを取得
+#         current = queue.pop()
+#         count += 1
 
-        # last_digitより小さい数字を1つずつ追加して新たな321-likeNumberを生成
-        for i in range(last_digit):
-            new_number = current * 10 + i
-            queue.appendleft(new_number)
+#         # K番目の321-likeNumberに到達した場合、それを返す
+#         if count == K:
+#             return current
 
-# 入力を受け取る
-K = int(input())
+#         # currentの最後の桁を取得
+#         last_digit = current % 10
 
-# K番目の321-likeNumberを求めて出力
-result = generate_321_like_numbers(K)
-print(result)
+#         # last_digitより小さい数字を1つずつ追加して新たな321-likeNumberを生成
+#         for i in range(last_digit):
+#             new_number = current * 10 + i
+#             queue.appendleft(new_number)
+
+# # 入力を受け取る
+# K = int(input())
+
+# # K番目の321-likeNumberを求めて出力
+# result = generate_321_like_numbers(K)
+# print(result)
 
 
 
