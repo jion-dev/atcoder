@@ -105,5 +105,10 @@
     "utility": "cpp",
     "stop_token": "cpp",
     "syncstream": "cpp"
-  }
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.formatOnSave": true
+  },
+  "python.formatting.provider": "none"
 }
