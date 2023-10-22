@@ -98,9 +98,12 @@ s = [list(input()) for _ in range(h)]
 
 n = h*w
 uf = dsu(n)
+ans = 0
+
 for i in range(h):
     for j in range(w):
         if s[i][j] != "#": continue
+        ans+=1
         for di in range(-1, 2):
           for dj in range(-1, 2):
             ni = i+di
@@ -108,14 +111,10 @@ for i in range(h):
             if ni < 0 or ni >= h or nj < 0 or nj >= w: continue
             if s[ni][nj] != "#": continue
             if i == ni and j == nj: continue
-            uf.merge(i*w+j, ni*w+nj)
-
-ans = 0
-for i in range(h):
-    for j in range(w):
-        if s[i][j] != "#": continue
-        v = i*w+j
-        if uf.leader(v) == v:
-            ans+=1
+            v = i*w+j
+            u = ni*w+nj
+            if (uf.same(v, u)): continue
+            uf.merge(v, u)
+            ans-=1 # グループがくっ付いたら一つ減る
 
 print(ans)
