@@ -16,29 +16,33 @@ def MS(): return input().split()
 def LS(): return list(input().split())
 
 
-def min_weirdness_sum(N, K, A):
-    # 靴下の数をNとして初期化
-    socks = [0] * (N + 1)
-
-    # 色iの靴下の数を記録
-    for a in A:
-        socks[a] += 1
-
-    # dpテーブルを初期化
-    dp = [float('inf')] * (N + 1)
-    dp[0] = 0
-
-    # dpを更新
-    for i in range(1, N + 1):
-        for j in range(1, min(i, K) + 1):
-            dp[i] = min(dp[i], dp[i - j] + abs(socks[i] - j))
-
-    return dp[N]
-
-
 N, K = MI()
 A = LI()
+cnt = [2]*N
 
-# 結果を出力
-result = min_weirdness_sum(N, K, A)
-print(result)
+for i in range(K):
+    a = A[i]
+    a -= 1
+    cnt[a] -= 1
+
+x = []
+for i in range(N):
+    for j in range(cnt[i]):
+        x.append(i)
+
+n = len(x)
+if n % 2 == 0:
+    ans = 0
+    for i in range(n//2):
+        ans += x[i*2+1]-x[i*2]
+    print(ans)
+else:
+    now = 0
+    for i in range(n//2):
+        now += x[i*2+2]-x[i*2+1]
+    ans = now
+    for i in range(2, n, 2):
+        now += x[i-1]-x[i-2]
+        now -= x[i]-x[i-1]
+        ans = min(ans, now)
+    print(ans)
