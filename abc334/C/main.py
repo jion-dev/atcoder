@@ -25,11 +25,13 @@ for i in range(K):
     a -= 1
     cnt[a] -= 1
 
+# 数直線の座標xとして扱う
 x = []
 for i in range(N):
     for j in range(cnt[i]):
         x.append(i)
 
+# 靴下の組みではなく、全ての靴下の枚数で考える
 n = len(x)
 if n % 2 == 0:
     ans = 0
@@ -38,9 +40,11 @@ if n % 2 == 0:
     print(ans)
 else:
     now = 0
+    # 0番目を排除した初期解を求めておく
     for i in range(n//2):
         now += x[i*2+2]-x[i*2+1]
     ans = now
+    # 二番目以降の偶数番目を消していくのを試す
     for i in range(2, n, 2):
         now += x[i-1]-x[i-2]
         now -= x[i]-x[i-1]
