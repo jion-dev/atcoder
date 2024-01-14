@@ -24,22 +24,19 @@ def max_pyramid_size(N, A):
     # Calculate the left maximum heights
     for i in range(N):
         if i == 0:
-            left[i] = A[i]
+            left[i] = 1
         else:
             left[i] = min(A[i], left[i-1] + 1)
 
     # Calculate the right maximum heights
     for i in range(N-1, -1, -1):
         if i == N-1:
-            right[i] = A[i]
+            right[i] = 1
         else:
             right[i] = min(A[i], right[i+1] + 1)
-
-    # Calculate the maximum size of pyramid by taking the minimum of left and right heights at each index
     max_size = 0
     for i in range(N):
         max_size = max(max_size, min(left[i], right[i]))
-
     return max_size
 
 
